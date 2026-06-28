@@ -1,0 +1,26 @@
+true_breed_idx,true_breed,pred_idx,pred_breed,count,pct_errors,cum_pct_errors
+119,wire-haired fox terrier,41,Lakeland terrier,6,75.0,75.0
+119,wire-haired fox terrier,2,Airedale,1,12.5,87.5
+119,wire-haired fox terrier,34,Irish terrier,1,12.5,100.0
+9,Border collie,89,collie,6,85.71428571428571,85.71428571428571
+9,Border collie,67,Tibetan mastiff,1,14.285714285714286,100.0
+24,Eskimo dog,64,Siberian husky,5,83.33333333333333,83.33333333333333
+24,Eskimo dog,101,malamute,1,16.666666666666668,100.0
+65,Staffordshire bullterrier,3,American Staffordshire terrier,4,66.66666666666667,66.66666666666667
+65,Staffordshire bullterrier,40,Labrador retriever,1,16.666666666666668,83.33333333333334
+65,Staffordshire bullterrier,91,dhole,1,16.666666666666668,100.00000000000001
+104,miniature poodle,115,toy poodle,3,50.0,50.0
+104,miniature poodle,46,Newfoundland,1,16.666666666666668,66.66666666666667
+104,miniature poodle,39,Kerry blue terrier,1,16.666666666666668,83.33333333333334
+104,miniature poodle,113,standard poodle,1,16.666666666666668,100.00000000000001
+114,standard schnauzer,105,miniature schnauzer,5,83.33333333333333,83.33333333333333
+114,standard schnauzer,94,giant schnauzer,1,16.666666666666668,100.0
+15,Cardigan,52,Pembroke,5,100.0,100.0
+89,collie,9,Border collie,4,80.0,80.0
+89,collie,4,Appenzeller,1,20.0,100.0
+21,English setter,81,borzoi,3,60.0,60.0
+21,English setter,49,Norwich terrier,1,20.0,80.0
+21,English setter,9,Border collie,1,20.0,100.0
+64,Siberian husky,24,Eskimo dog,3,50.0,50.0
+64,Siberian husky,101,malamute,2,33.333333333333336,83.33333333333334
+64,Siberian husky,81,borzoi,1,16.666666666666668,100.00000000000001

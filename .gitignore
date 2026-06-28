@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local datasets and generated data
+data/
+datasets/
+raw/
+raw_ingest/
+images/
+Annotation/
+annotations_raw/
+dog/
+dogs/
+stanford_dogs/
+petface/
+petface_dog/
+
+# Model weights and large ML artifacts
+models/
+checkpoints/
+artifacts/
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.joblib
+*.pkl
+*.pickle
+*.mat
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# Generated reports and build outputs
+build/
+dist/
+site/
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

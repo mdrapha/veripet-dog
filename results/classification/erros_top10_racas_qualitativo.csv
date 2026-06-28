@@ -1,0 +1,64 @@
+sample_idx,image_path,true_idx,true_breed,pred_idx,pred_breed,has_bbox
+34,/content/local_data_test/Images/n02109961-Eskimo_dog/n02109961_7861.jpg,24,Eskimo dog,64,Siberian husky,True
+48,/content/local_data_test/Images/n02095314-wire-haired_fox_terrier/n02095314_1278.jpg,119,wire-haired fox terrier,41,Lakeland terrier,True
+119,/content/local_data_test/Images/n02097209-standard_schnauzer/n02097209_169.jpg,114,standard schnauzer,105,miniature schnauzer,True
+154,/content/local_data_test/Images/n02095314-wire-haired_fox_terrier/n02095314_2687.jpg,119,wire-haired fox terrier,106,otterhound,True
+192,/content/local_data_test/Images/n02106030-collie/n02106030_14677.jpg,89,collie,9,Border collie,True
+205,/content/local_data_test/Images/n02097658-silky_terrier/n02097658_2048.jpg,111,silky terrier,73,Yorkshire terrier,True
+212,/content/local_data_test/Images/n02113712-miniature_poodle/n02113712_1395.jpg,104,miniature poodle,115,toy poodle,True
+430,/content/local_data_test/Images/n02106030-collie/n02106030_2471.jpg,89,collie,9,Border collie,True
+567,/content/local_data_test/Images/n02095314-wire-haired_fox_terrier/n02095314_1782.jpg,119,wire-haired fox terrier,6,Bedlington terrier,True
+574,/content/local_data_test/Images/n02095314-wire-haired_fox_terrier/n02095314_188.jpg,119,wire-haired fox terrier,2,Airedale,True
+596,/content/local_data_test/Images/n02097209-standard_schnauzer/n02097209_1164.jpg,114,standard schnauzer,105,miniature schnauzer,True
+686,/content/local_data_test/Images/n02097209-standard_schnauzer/n02097209_3089.jpg,114,standard schnauzer,105,miniature schnauzer,True
+705,/content/local_data_test/Images/n02110185-Siberian_husky/n02110185_5172.jpg,64,Siberian husky,24,Eskimo dog,True
+790,/content/local_data_test/Images/n02095314-wire-haired_fox_terrier/n02095314_3364.jpg,119,wire-haired fox terrier,41,Lakeland terrier,True
+851,/content/local_data_test/Images/n02113712-miniature_poodle/n02113712_6173.jpg,104,miniature poodle,115,toy poodle,True
+886,/content/local_data_test/Images/n02094114-Norfolk_terrier/n02094114_346.jpg,47,Norfolk terrier,49,Norwich terrier,True
+922,/content/local_data_test/Images/n02110185-Siberian_husky/n02110185_7246.jpg,64,Siberian husky,24,Eskimo dog,True
+997,/content/local_data_test/Images/n02108000-EntleBucher/n02108000_1881.jpg,23,EntleBucher,7,Bernese mountain dog,True
+1001,/content/local_data_test/Images/n02109961-Eskimo_dog/n02109961_18527.jpg,24,Eskimo dog,64,Siberian husky,True
+1025,/content/local_data_test/Images/n02113712-miniature_poodle/n02113712_160.jpg,104,miniature poodle,115,toy poodle,True
+1083,/content/local_data_test/Images/n02108000-EntleBucher/n02108000_2498.jpg,23,EntleBucher,4,Appenzeller,True
+1113,/content/local_data_test/Images/n02097658-silky_terrier/n02097658_6546.jpg,111,silky terrier,73,Yorkshire terrier,True
+1132,/content/local_data_test/Images/n02109961-Eskimo_dog/n02109961_12719.jpg,24,Eskimo dog,64,Siberian husky,True
+1141,/content/local_data_test/Images/n02113624-toy_poodle/n02113624_1756.jpg,115,toy poodle,104,miniature poodle,True
+1171,/content/local_data_test/Images/n02094114-Norfolk_terrier/n02094114_2526.jpg,47,Norfolk terrier,49,Norwich terrier,True
+1182,/content/local_data_test/Images/n02097209-standard_schnauzer/n02097209_3599.jpg,114,standard schnauzer,36,Irish wolfhound,True
+1183,/content/local_data_test/Images/n02113624-toy_poodle/n02113624_1929.jpg,115,toy poodle,104,miniature poodle,True
+1198,/content/local_data_test/Images/n02095314-wire-haired_fox_terrier/n02095314_2038.jpg,119,wire-haired fox terrier,41,Lakeland terrier,True
+1290,/content/local_data_test/Images/n02113712-miniature_poodle/n02113712_2699.jpg,104,miniature poodle,18,Dandie Dinmont,True
+1317,/content/local_data_test/Images/n02097658-silky_terrier/n02097658_10289.jpg,111,silky terrier,73,Yorkshire terrier,True
+1339,/content/local_data_test/Images/n02097209-standard_schnauzer/n02097209_2087.jpg,114,standard schnauzer,94,giant schnauzer,True
+1347,/content/local_data_test/Images/n02110185-Siberian_husky/n02110185_4186.jpg,64,Siberian husky,24,Eskimo dog,True
+1423,/content/local_data_test/Images/n02113624-toy_poodle/n02113624_3887.jpg,115,toy poodle,104,miniature poodle,True
+1445,/content/local_data_test/Images/n02113624-toy_poodle/n02113624_8444.jpg,115,toy poodle,104,miniature poodle,True
+1500,/content/local_data_test/Images/n02113624-toy_poodle/n02113624_70.jpg,115,toy poodle,104,miniature poodle,True
+1563,/content/local_data_test/Images/n02094114-Norfolk_terrier/n02094114_99.jpg,47,Norfolk terrier,34,Irish terrier,True
+1583,/content/local_data_test/Images/n02110185-Siberian_husky/n02110185_3808.jpg,64,Siberian husky,24,Eskimo dog,True
+1645,/content/local_data_test/Images/n02113624-toy_poodle/n02113624_6652.jpg,115,toy poodle,104,miniature poodle,True
+1687,/content/local_data_test/Images/n02108000-EntleBucher/n02108000_3236.jpg,23,EntleBucher,68,Tibetan terrier,True
+1741,/content/local_data_test/Images/n02106030-collie/n02106030_19433.jpg,89,collie,81,borzoi,True
+1763,/content/local_data_test/Images/n02109961-Eskimo_dog/n02109961_8698.jpg,24,Eskimo dog,64,Siberian husky,True
+1895,/content/local_data_test/Images/n02113624-toy_poodle/n02113624_3714.jpg,115,toy poodle,113,standard poodle,True
+1997,/content/local_data_test/Images/n02113624-toy_poodle/n02113624_3341.jpg,115,toy poodle,41,Lakeland terrier,True
+2069,/content/local_data_test/Images/n02108000-EntleBucher/n02108000_3601.jpg,23,EntleBucher,31,Greater Swiss Mountain dog,True
+2071,/content/local_data_test/Images/n02106030-collie/n02106030_16011.jpg,89,collie,96,groenendael,True
+2099,/content/local_data_test/Images/n02109961-Eskimo_dog/n02109961_1633.jpg,24,Eskimo dog,101,malamute,True
+2170,/content/local_data_test/Images/n02097658-silky_terrier/n02097658_1137.jpg,111,silky terrier,73,Yorkshire terrier,True
+2231,/content/local_data_test/Images/n02109961-Eskimo_dog/n02109961_623.jpg,24,Eskimo dog,64,Siberian husky,True
+2369,/content/local_data_test/Images/n02094114-Norfolk_terrier/n02094114_563.jpg,47,Norfolk terrier,49,Norwich terrier,True
+2445,/content/local_data_test/Images/n02110185-Siberian_husky/n02110185_14594.jpg,64,Siberian husky,101,malamute,True
+2466,/content/local_data_test/Images/n02106030-collie/n02106030_15829.jpg,89,collie,9,Border collie,True
+2556,/content/local_data_test/Images/n02108000-EntleBucher/n02108000_446.jpg,23,EntleBucher,31,Greater Swiss Mountain dog,True
+2577,/content/local_data_test/Images/n02094114-Norfolk_terrier/n02094114_4127.jpg,47,Norfolk terrier,49,Norwich terrier,True
+2589,/content/local_data_test/Images/n02097658-silky_terrier/n02097658_4081.jpg,111,silky terrier,73,Yorkshire terrier,True
+2649,/content/local_data_test/Images/n02095314-wire-haired_fox_terrier/n02095314_2130.jpg,119,wire-haired fox terrier,41,Lakeland terrier,True
+2674,/content/local_data_test/Images/n02110185-Siberian_husky/n02110185_5716.jpg,64,Siberian husky,101,malamute,True
+2742,/content/local_data_test/Images/n02095314-wire-haired_fox_terrier/n02095314_2964.jpg,119,wire-haired fox terrier,41,Lakeland terrier,True
+2754,/content/local_data_test/Images/n02108000-EntleBucher/n02108000_1750.jpg,23,EntleBucher,31,Greater Swiss Mountain dog,True
+2771,/content/local_data_test/Images/n02097209-standard_schnauzer/n02097209_2810.jpg,114,standard schnauzer,94,giant schnauzer,True
+2845,/content/local_data_test/Images/n02113624-toy_poodle/n02113624_5278.jpg,115,toy poodle,44,Maltese dog,True
+2926,/content/local_data_test/Images/n02113712-miniature_poodle/n02113712_4526.jpg,104,miniature poodle,115,toy poodle,True
+2968,/content/local_data_test/Images/n02097658-silky_terrier/n02097658_1516.jpg,111,silky terrier,5,Australian terrier,True
+3068,/content/local_data_test/Images/n02109961-Eskimo_dog/n02109961_3715.jpg,24,Eskimo dog,101,malamute,True

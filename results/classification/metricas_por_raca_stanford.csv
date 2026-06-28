@@ -1,0 +1,123 @@
+Raca,Precision,Recall,F1-Score,Support
+Afghan hound,0.9722,0.9722,0.9722,36
+African hunting dog,1.0000,0.8800,0.9362,25
+Airedale,0.9310,0.8710,0.9000,31
+American Staffordshire terrier,0.6071,0.7083,0.6538,24
+Appenzeller,0.6154,0.6957,0.6531,23
+Australian terrier,0.8125,0.8667,0.8387,30
+Bedlington terrier,0.9643,0.9643,0.9643,28
+Bernese mountain dog,0.8824,0.9375,0.9091,32
+Blenheim spaniel,1.0000,0.8214,0.9020,28
+Border collie,0.6500,0.5909,0.6190,22
+Border terrier,0.9259,0.9615,0.9434,26
+Boston bull,0.9310,0.9643,0.9474,28
+Bouvier des Flandres,0.9500,0.8636,0.9048,22
+Brabancon griffon,1.0000,0.8696,0.9302,23
+Brittany spaniel,0.9545,0.9130,0.9333,23
+Cardigan,0.7308,0.8261,0.7755,23
+Chesapeake Bay retriever,1.0000,0.9200,0.9583,25
+Chihuahua,0.9091,0.8696,0.8889,23
+Dandie Dinmont,0.8621,0.9259,0.8929,27
+Doberman,0.9167,1.0000,0.9565,22
+English foxhound,0.8571,0.7500,0.8000,24
+English setter,0.9524,0.8333,0.8889,24
+English springer,0.7692,0.8333,0.8000,24
+EntleBucher,0.9167,0.7097,0.8000,31
+Eskimo dog,0.2500,0.2727,0.2609,22
+French bulldog,0.9130,0.8750,0.8936,24
+German shepherd,0.9444,0.7391,0.8293,23
+German short-haired pointer,0.8519,1.0000,0.9200,23
+Gordon setter,0.8800,0.9565,0.9167,23
+Great Dane,0.8214,1.0000,0.9020,23
+Great Pyrenees,0.9032,0.8750,0.8889,32
+Greater Swiss Mountain dog,0.7241,0.8400,0.7778,25
+Ibizan hound,0.9286,0.9286,0.9286,28
+Irish setter,0.8846,1.0000,0.9388,23
+Irish terrier,0.8571,0.9231,0.8889,26
+Irish water spaniel,0.9130,0.9545,0.9333,22
+Irish wolfhound,0.8788,0.9062,0.8923,32
+Italian greyhound,0.7812,0.8929,0.8333,28
+Japanese spaniel,0.7941,0.9643,0.8710,28
+Kerry blue terrier,0.8966,0.9630,0.9286,27
+Labrador retriever,0.7586,0.8800,0.8148,25
+Lakeland terrier,0.8889,0.8000,0.8421,30
+Leonberg,0.9062,0.9062,0.9062,32
+Lhasa,0.7059,0.8571,0.7742,28
+Maltese dog,0.9143,0.8421,0.8767,38
+Mexican hairless,1.0000,0.9130,0.9545,23
+Newfoundland,0.8438,0.9310,0.8852,29
+Norfolk terrier,0.9048,0.7308,0.8085,26
+Norwegian elkhound,0.9615,0.8333,0.8929,30
+Norwich terrier,0.7941,0.9643,0.8710,28
+Old English sheepdog,1.0000,0.9231,0.9600,26
+Pekinese,0.9524,0.9091,0.9302,22
+Pembroke,0.8065,0.9259,0.8621,27
+Pomeranian,1.0000,0.9697,0.9846,33
+Rhodesian ridgeback,0.7407,0.7692,0.7547,26
+Rottweiler,0.8800,0.9565,0.9167,23
+Saint Bernard,0.8846,0.9200,0.9020,25
+Saluki,0.9643,0.9000,0.9310,30
+Samoyed,0.9688,0.9688,0.9688,32
+Scotch terrier,1.0000,0.7917,0.8837,24
+Scottish deerhound,0.8649,0.9143,0.8889,35
+Sealyham terrier,0.9394,1.0000,0.9688,31
+Shetland sheepdog,0.9412,0.6957,0.8000,23
+Shih-Tzu,0.8571,0.7500,0.8000,32
+Siberian husky,0.5185,0.4828,0.5000,29
+Staffordshire bullterrier,0.8095,0.7391,0.7727,23
+Sussex spaniel,1.0000,0.9130,0.9545,23
+Tibetan mastiff,1.0000,0.8261,0.9048,23
+Tibetan terrier,0.9333,0.9032,0.9180,31
+Walker hound,0.7391,0.7391,0.7391,23
+Weimaraner,0.9200,0.9583,0.9388,24
+Welsh springer spaniel,0.9091,0.9091,0.9091,22
+West Highland white terrier,0.8571,0.9231,0.8889,26
+Yorkshire terrier,0.7600,0.7600,0.7600,25
+affenpinscher,0.9474,0.8182,0.8780,22
+basenji,0.9032,0.8750,0.8889,32
+basset,0.9615,0.9615,0.9615,26
+beagle,0.8889,0.8276,0.8571,29
+black-and-tan coonhound,0.9545,0.8750,0.9130,24
+bloodhound,1.0000,0.8929,0.9434,28
+bluetick,0.8800,0.8800,0.8800,25
+borzoi,1.0000,0.9091,0.9524,22
+boxer,1.0000,0.6818,0.8108,22
+briard,0.8571,0.7826,0.8182,23
+bull mastiff,0.7931,0.9583,0.8679,24
+cairn,0.8710,0.9000,0.8852,30
+chow,0.9667,0.9667,0.9667,30
+clumber,1.0000,0.9091,0.9524,22
+cocker spaniel,0.9600,1.0000,0.9796,24
+collie,0.5357,0.6522,0.5882,23
+curly-coated retriever,1.0000,0.9545,0.9767,22
+dhole,0.9130,0.9545,0.9333,22
+dingo,0.8421,0.6957,0.7619,23
+flat-coated retriever,0.9048,0.8261,0.8636,23
+giant schnauzer,0.8214,0.9583,0.8846,24
+golden retriever,0.9048,0.8636,0.8837,22
+groenendael,0.8333,0.8696,0.8511,23
+keeshond,1.0000,0.9565,0.9778,23
+kelpie,0.6667,0.6957,0.6809,23
+komondor,1.0000,1.0000,1.0000,23
+kuvasz,0.9545,0.9545,0.9545,22
+malamute,0.7097,0.8148,0.7586,27
+malinois,0.8148,1.0000,0.8980,22
+miniature pinscher,0.8125,0.9286,0.8667,28
+miniature poodle,0.4074,0.4783,0.4400,23
+miniature schnauzer,0.7200,0.7826,0.7500,23
+otterhound,0.7333,1.0000,0.8462,22
+papillon,0.9355,0.9667,0.9508,30
+pug,1.0000,0.9667,0.9831,30
+redbone,0.8696,0.9091,0.8889,22
+schipperke,0.9500,0.8261,0.8837,23
+silky terrier,0.9048,0.6786,0.7755,28
+soft-coated wheaten terrier,0.8519,1.0000,0.9200,23
+standard poodle,0.8077,0.8750,0.8400,24
+standard schnauzer,0.7083,0.7391,0.7234,23
+toy poodle,0.4667,0.3182,0.3784,22
+toy terrier,0.8636,0.7308,0.7917,26
+vizsla,0.9474,0.7826,0.8571,23
+whippet,0.7333,0.7857,0.7586,28
+wire-haired fox terrier,0.7500,0.7500,0.7500,24
+macro avg,0.8634,0.8566,0.8567,3087
+weighted avg,0.8664,0.8597,0.8599,3087
