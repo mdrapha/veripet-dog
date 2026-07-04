@@ -378,7 +378,7 @@ def batch_hard_triplet_loss(embeddings, labels, margin: float = 0.2):
             hardest_negative = distances[index][negative].min()
             losses.append(F.relu(hardest_positive - hardest_negative + margin))
     if not losses:
-        return embeddings.new_tensor(0.0)
+        return embeddings.sum() * 0.0
     return torch.stack(losses).mean()
 
 

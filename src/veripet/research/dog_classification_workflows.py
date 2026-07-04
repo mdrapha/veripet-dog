@@ -52,6 +52,9 @@ class DogClassificationOptunaConfig:
     dry_run: bool = False
     smoke: bool = False
     early_stopping_patience: int = 3
+    smoke_fraction: float = 0.10
+    smoke_min_per_breed: int = 2
+    smoke_max_per_breed: int = 12
 
 
 def recommended_search_space() -> Dict[str, object]:
@@ -145,6 +148,37 @@ def stratified_split_rows(
         "val": [dict(rows[index]) for index in val_idx],
         "test": [dict(rows[index]) for index in test_idx],
     }
+
+
+def sample_split_rows(
+    split_rows: Dict[str, List[Dict[str, object]]],
+    *,
+    fraction: float,
+    seed: int,
+    min_per_breed: int = 1,
+    max_per_breed: Optional[int] = None,
+) -> Dict[str, List[Dict[str, object]]]:
+    if fraction >= 1.0 and max_per_breed is None:
+        return {split: [dict(row) for row in rows] for split, rows in split_rows.items()}
+
+    rng = random.Random(seed)
+    sampled: Dict[str, List[Dict[str, object]]] = {}
+    for split, rows in split_rows.items():
+        grouped: Dict[str, List[Dict[str, object]]] = {}
+        for row in rows:
+            grouped.setdefault(str(row["breed"]), []).append(dict(row))
+        split_sample: List[Dict[str, object]] = []
+        for breed, breed_rows in grouped.items():
+            breed_rows = list(breed_rows)
+            rng.shuffle(breed_rows)
+            keep = max(min_per_breed, int(round(len(breed_rows) * fraction)))
+            if max_per_breed is not None:
+                keep = min(keep, max_per_breed)
+            keep = min(len(breed_rows), keep)
+            split_sample.extend(breed_rows[:keep])
+        rng.shuffle(split_sample)
+        sampled[split] = split_sample
+    return sampled
 
 
 def build_transforms(
@@ -495,6 +529,14 @@ def run_dog_classification_optuna(config: DogClassificationOptunaConfig) -> Dict
 
     rows = discover_stanford_dogs(config.paths)
     split_rows = stratified_split_rows(rows, seed=42)
+    if config.smoke:
+        split_rows = sample_split_rows(
+            split_rows,
+            fraction=config.smoke_fraction,
+            seed=config.seed,
+            min_per_breed=config.smoke_min_per_breed,
+            max_per_breed=config.smoke_max_per_breed,
+        )
 
     def objective(trial: object) -> float:
         params = _suggest_params(trial)
@@ -531,6 +573,7 @@ def run_dog_classification_optuna(config: DogClassificationOptunaConfig) -> Dict
         "best_value": study.best_value,
         "best_trial": study.best_trial.number,
         "best_params": dict(study.best_trial.params),
+        "split_sizes": {split: len(rows) for split, rows in split_rows.items()},
         "trials_csv": str(results_dir / "optuna_trials.csv"),
         "results_dir": str(results_dir),
     }
