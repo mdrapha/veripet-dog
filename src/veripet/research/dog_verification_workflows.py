@@ -156,6 +156,34 @@ def sample_pair_rows(rows: Sequence[Dict[str, object]], fraction: float, seed: i
     return sampled
 
 
+def _first_existing(base_dir: Path, names: Sequence[str], label: str) -> Path:
+    for name in names:
+        path = base_dir / name
+        if path.exists():
+            return path
+    tried = ", ".join(str(base_dir / name) for name in names)
+    raise FileNotFoundError(f"Could not find {label}. Tried: {tried}")
+
+
+def _split_pairs_for_val_test(rows: Sequence[Dict[str, object]], seed: int = 42) -> tuple[List[Dict[str, object]], List[Dict[str, object]]]:
+    grouped: Dict[str, List[Dict[str, object]]] = {}
+    for row in rows:
+        key = str(row.get("pair_type", row.get("label", "unknown")))
+        grouped.setdefault(key, []).append(dict(row))
+    rng = random.Random(seed)
+    val_rows: List[Dict[str, object]] = []
+    test_rows: List[Dict[str, object]] = []
+    for group in grouped.values():
+        group = list(group)
+        rng.shuffle(group)
+        midpoint = max(1, len(group) // 2)
+        val_rows.extend(group[:midpoint])
+        test_rows.extend(group[midpoint:])
+    rng.shuffle(val_rows)
+    rng.shuffle(test_rows)
+    return val_rows, test_rows
+
+
 def build_verification_transforms(input_size: int) -> Dict[str, object]:
     from torchvision import transforms
 
@@ -381,13 +409,31 @@ def score_pairs(model, loader, device, use_amp: bool) -> List[Dict[str, object]]
 
 
 def _prepare_data(config: DogVerificationSweepConfig):
-    train_rows = read_csv_rows(config.paths.split_dir / config.train_csv_name)
-    val_pairs = read_csv_rows(config.paths.split_dir / config.val_pairs_name)
-    test_pairs = read_csv_rows(config.paths.split_dir / config.test_pairs_name)
+    train_path = _first_existing(
+        config.paths.split_dir,
+        [config.train_csv_name, "train.csv"],
+        "dog verification train split",
+    )
+    train_rows = read_csv_rows(train_path)
     identity_to_breed = load_identity_breed_map(config.paths.annotations_csv)
+    val_path = config.paths.split_dir / config.val_pairs_name
+    test_path = config.paths.split_dir / config.test_pairs_name
+    if val_path.exists() and test_path.exists():
+        val_pairs = read_csv_rows(val_path)
+        test_pairs = read_csv_rows(test_path)
+        val_pairs_enriched = enrich_pair_rows(val_pairs, identity_to_breed)
+        test_pairs_enriched = enrich_pair_rows(test_pairs, identity_to_breed)
+    else:
+        combined_path = _first_existing(
+            config.paths.split_dir,
+            ["verification.csv", "verification_pairs.csv", "verification_test_pairs.csv"],
+            "dog verification pair split",
+        )
+        combined_pairs = enrich_pair_rows(read_csv_rows(combined_path), identity_to_breed)
+        val_pairs_enriched, test_pairs_enriched = _split_pairs_for_val_test(combined_pairs, seed=42)
     train_rows = sample_rows_by_identity(train_rows, config.train_identity_fraction, seed=42)
-    val_pairs_enriched = sample_pair_rows(enrich_pair_rows(val_pairs, identity_to_breed), config.pair_fraction, seed=42)
-    test_pairs_enriched = sample_pair_rows(enrich_pair_rows(test_pairs, identity_to_breed), config.pair_fraction, seed=43)
+    val_pairs_enriched = sample_pair_rows(val_pairs_enriched, config.pair_fraction, seed=42)
+    test_pairs_enriched = sample_pair_rows(test_pairs_enriched, config.pair_fraction, seed=43)
     return train_rows, val_pairs_enriched, test_pairs_enriched
 
 
