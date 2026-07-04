@@ -29,6 +29,15 @@ class DogVerificationPaths:
     def image_root(self) -> Path:
         return self.work_dir
 
+    def image_root_candidates(self) -> List[Path]:
+        return [
+            self.work_dir,
+            self.drive_base,
+            self.work_dir / "dog",
+            self.drive_base / "dog",
+            self.drive_base / "images",
+        ]
+
     @property
     def split_dir(self) -> Path:
         return self.drive_base / "split"
@@ -163,6 +172,39 @@ def _first_existing(base_dir: Path, names: Sequence[str], label: str) -> Path:
             return path
     tried = ", ".join(str(base_dir / name) for name in names)
     raise FileNotFoundError(f"Could not find {label}. Tried: {tried}")
+
+
+def _row_filenames(row: Dict[str, object]) -> List[str]:
+    filenames: List[str] = []
+    for key in ("filename", "filename1", "filename2"):
+        if key in row and row[key]:
+            filenames.append(str(row[key]))
+    return filenames
+
+
+def resolve_image_root(paths: DogVerificationPaths, rows: Sequence[Dict[str, object]]) -> Path:
+    sample_filenames: List[str] = []
+    for row in rows[:100]:
+        sample_filenames.extend(_row_filenames(row))
+        if len(sample_filenames) >= 20:
+            break
+    candidates = paths.image_root_candidates()
+    for candidate in candidates:
+        if not candidate.exists():
+            continue
+        hits = sum(1 for filename in sample_filenames if (candidate / filename).exists())
+        if sample_filenames and hits == len(sample_filenames):
+            return candidate
+        if sample_filenames and hits > 0:
+            return candidate
+    tried = ", ".join(str(path) for path in candidates)
+    examples = ", ".join(sample_filenames[:5])
+    raise FileNotFoundError(
+        "Could not resolve PetFace Dog image root. "
+        f"Tried roots: {tried}. Example CSV filenames: {examples}. "
+        "If filenames start with 'dog/...', place the extracted 'dog' folder under "
+        "'/content/dogs' or '/content/drive/MyDrive/dogs'."
+    )
 
 
 def _split_pairs_for_val_test(rows: Sequence[Dict[str, object]], seed: int = 42) -> tuple[List[Dict[str, object]], List[Dict[str, object]]]:
@@ -443,16 +485,17 @@ def run_frozen_embedding_baseline(config: DogVerificationSweepConfig) -> Dict[st
 
     set_seed(42)
     train_rows, val_pairs, test_pairs = _prepare_data(config)
+    image_root = resolve_image_root(config.paths, list(train_rows[:20]) + list(val_pairs[:20]) + list(test_pairs[:20]))
     transforms_by_split = build_verification_transforms(config.input_size)
     device = _device()
     model = DogEmbeddingModel(embedding_dim=config.embedding_dim, trainable_projection=False).to(device)
     val_loader = DataLoader(
-        DogVerificationPairsDataset(val_pairs, config.paths.image_root, transforms_by_split["eval"]),
+        DogVerificationPairsDataset(val_pairs, image_root, transforms_by_split["eval"]),
         collate_fn=_collate_pairs,
         **_loader_kwargs(config.eval_batch_size, config.num_workers, shuffle=False),
     )
     test_loader = DataLoader(
-        DogVerificationPairsDataset(test_pairs, config.paths.image_root, transforms_by_split["eval"]),
+        DogVerificationPairsDataset(test_pairs, image_root, transforms_by_split["eval"]),
         collate_fn=_collate_pairs,
         **_loader_kwargs(config.eval_batch_size, config.num_workers, shuffle=False),
     )
@@ -467,6 +510,7 @@ def run_frozen_embedding_baseline(config: DogVerificationSweepConfig) -> Dict[st
     summary = {
         "experiment_name": "frozen_convnext_small_cosine",
         "train_rows": len(train_rows),
+        "image_root": str(image_root),
         "val_pairs": len(val_pairs),
         "test_pairs": len(test_pairs),
         "threshold": calibration.threshold,
@@ -493,20 +537,21 @@ def run_single_verification_experiment(
 
     set_seed(seed)
     started = time.time()
+    image_root = resolve_image_root(config.paths, list(train_rows[:20]) + list(val_pairs[:20]) + list(test_pairs[:20]))
     transforms_by_split = build_verification_transforms(config.input_size)
-    train_dataset = DogVerificationTrainDataset(train_rows, config.paths.image_root, transforms_by_split["train"])
+    train_dataset = DogVerificationTrainDataset(train_rows, image_root, transforms_by_split["train"])
     label_to_idx = train_dataset.label_to_idx
     train_loader = DataLoader(
         train_dataset,
         **_loader_kwargs(config.batch_size, config.num_workers, shuffle=True, drop_last=True),
     )
     val_loader = DataLoader(
-        DogVerificationPairsDataset(val_pairs, config.paths.image_root, transforms_by_split["eval"]),
+        DogVerificationPairsDataset(val_pairs, image_root, transforms_by_split["eval"]),
         collate_fn=_collate_pairs,
         **_loader_kwargs(config.eval_batch_size, config.num_workers, shuffle=False),
     )
     test_loader = DataLoader(
-        DogVerificationPairsDataset(test_pairs, config.paths.image_root, transforms_by_split["eval"]),
+        DogVerificationPairsDataset(test_pairs, image_root, transforms_by_split["eval"]),
         collate_fn=_collate_pairs,
         **_loader_kwargs(config.eval_batch_size, config.num_workers, shuffle=False),
     )
@@ -582,6 +627,7 @@ def run_single_verification_experiment(
         "loss": loss_name,
         "seed": seed,
         "train_rows": len(train_rows),
+        "image_root": str(image_root),
         "train_identities": len(label_to_idx),
         "val_pairs": len(val_pairs),
         "test_pairs": len(test_pairs),
