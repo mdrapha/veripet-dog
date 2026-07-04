@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 
-AVAILABLE_LOSSES = {"Softmax", "ArcFace", "CosFace", "AdaFace", "TripletMarginLoss"}
+AVAILABLE_LOSSES = {"Softmax", "ArcFace", "CosFace", "AdaFace", "MagFace", "TripletMarginLoss"}
 
 
 @dataclass(frozen=True)

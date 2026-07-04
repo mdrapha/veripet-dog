@@ -93,8 +93,17 @@ Recommended order:
 4. `notebooks/04_breed_verifier_filter.ipynb`
 5. `notebooks/05_fusion_verifier_classifier.ipynb`
 6. `notebooks/06_qualitative_analysis.ipynb`
+7. `notebooks/07_dog_classification_optuna_baselines.ipynb`
+8. `notebooks/08_dog_verification_loss_sweep.ipynb`
 
 The notebooks expect datasets and weights to be mounted locally or through Google Drive. See `docs/DATASETS.md` and `docs/REPRODUCIBILITY.md`.
+
+The two newer experiment notebooks bootstrap the package automatically in
+Colab by cloning and installing this public repository:
+
+```python
+https://github.com/mdrapha/veripet-dog.git
+```
 
 ## Paper and Presentation
 

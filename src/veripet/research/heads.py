@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 
-AVAILABLE_HEADS = {"Softmax", "ArcFace", "CosFace", "AdaFace"}
+AVAILABLE_HEADS = {"Softmax", "ArcFace", "CosFace", "AdaFace", "MagFace"}
 
 
 @dataclass(frozen=True)

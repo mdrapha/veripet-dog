@@ -10,8 +10,8 @@ def test_backbone_head_and_loss_factories_cover_planned_grid():
         "swin_tiny_patch4_window7_224",
         "resnet101.a1_in1k",
     ]
-    heads = ["Softmax", "ArcFace", "CosFace", "AdaFace"]
-    losses = ["Softmax", "ArcFace", "CosFace", "AdaFace", "TripletMarginLoss"]
+    heads = ["Softmax", "ArcFace", "CosFace", "AdaFace", "MagFace"]
+    losses = ["Softmax", "ArcFace", "CosFace", "AdaFace", "MagFace", "TripletMarginLoss"]
 
     assert all(create_backbone(name).name == name for name in backbones)
     assert all(create_head(name, embedding_dim=512, num_classes=8).name == name for name in heads)
